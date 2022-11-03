@@ -21,7 +21,7 @@
     </p>
     <br>
     <section class="input_area">
-        <input id="input" type="text" maxlength="4" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" style="border:10px solid #3a4ca8"  placeholder="ex) 1998">
+        <input id="input" type="text" maxlength="4" pattern="[0-9]" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" style="border:10px solid #3a4ca8"  placeholder="ex) 1998">
         </input>
 
         <button id="Enter" type="button" class="btn btn-primary"> Enter </button>
@@ -51,19 +51,16 @@
     <script>
         // get input field
         var input = document.getElementById("input");
-        var input_num = $('#input').val();
+        var input_num = $('#input').val(); // unused declared variable
 
         // Execute a function when the user presses a key on the keyboard
         input.addEventListener("keypress", function(event) {
             // If the user presses the "Enter" key on the keyboard
-            if (event.key == "Enter") {
-                if($('#input').val()=='')
+            if (event.key == "Enter")
+            {
+                if(input_num=='')
                 {
-                    alert("Enter the input");
-                }
-                else if ($('#input').val()==)
-                {
-                    alert("Please enter a valid input")
+                    alert("Enter a Year");
                 }
                 // Trigger the button element with a click
                 else document.getElementById("Enter").click();
